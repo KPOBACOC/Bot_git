@@ -11,11 +11,12 @@ bot.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    //console.log(`[TEST] - ${file}`)
+    console.log(`[TEST] - ${file}`)
     // Set a new item in the Collection
 	// With the key as the command name and the value as the exported module
     bot.commands.set(command.data.name, command);
 }
+
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles){
